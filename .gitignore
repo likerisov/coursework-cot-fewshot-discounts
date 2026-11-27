@@ -1,0 +1,10 @@
+.env
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+results/llm_runs.jsonl
+results/llm_evaluation.csv
+results/llm_evaluation_summary.csv
+results/llm_evaluation.md
