@@ -1,0 +1,33 @@
+product_id,category,approach,planned_repetitions,status
+1,Электроника,zero_shot,3,planned_not_run
+1,Электроника,few_shot,3,planned_not_run
+1,Электроника,cot,3,planned_not_run
+1,Электроника,few_shot_cot,3,planned_not_run
+2,Одежда,zero_shot,3,planned_not_run
+2,Одежда,few_shot,3,planned_not_run
+2,Одежда,cot,3,planned_not_run
+2,Одежда,few_shot_cot,3,planned_not_run
+3,Косметика,zero_shot,3,planned_not_run
+3,Косметика,few_shot,3,planned_not_run
+3,Косметика,cot,3,planned_not_run
+3,Косметика,few_shot_cot,3,planned_not_run
+4,Бытовая техника,zero_shot,3,planned_not_run
+4,Бытовая техника,few_shot,3,planned_not_run
+4,Бытовая техника,cot,3,planned_not_run
+4,Бытовая техника,few_shot_cot,3,planned_not_run
+5,Обувь,zero_shot,3,planned_not_run
+5,Обувь,few_shot,3,planned_not_run
+5,Обувь,cot,3,planned_not_run
+5,Обувь,few_shot_cot,3,planned_not_run
+6,Игрушки,zero_shot,3,planned_not_run
+6,Игрушки,few_shot,3,planned_not_run
+6,Игрушки,cot,3,planned_not_run
+6,Игрушки,few_shot_cot,3,planned_not_run
+7,Спорттовары,zero_shot,3,planned_not_run
+7,Спорттовары,few_shot,3,planned_not_run
+7,Спорттовары,cot,3,planned_not_run
+7,Спорттовары,few_shot_cot,3,planned_not_run
+8,Книги,zero_shot,3,planned_not_run
+8,Книги,few_shot,3,planned_not_run
+8,Книги,cot,3,planned_not_run
+8,Книги,few_shot_cot,3,planned_not_run
