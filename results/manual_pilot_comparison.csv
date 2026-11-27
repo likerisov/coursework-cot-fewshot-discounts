@@ -1,0 +1,5 @@
+product_id,approach,discount_min_pct,discount_max_pct,selected_discount_pct,new_price_rub,unit_gross_difference_rub,gross_margin_after_discount_pct,provider,provider_verified,source
+1,zero_shot,25,30,25,3750,750,20.0,not_recorded,false,experiments/results.md
+1,few_shot,15,15,15,4250,1250,29.41,not_recorded,false,experiments/results.md
+1,cot,20,20,20,4000,1000,25.0,not_recorded,false,experiments/results.md
+1,few_shot_cot,30,30,30,3500,500,14.29,not_recorded,false,experiments/results.md
