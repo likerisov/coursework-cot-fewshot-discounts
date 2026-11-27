@@ -1,0 +1,9 @@
+product_id,category,stock_quantity,days_in_stock,last_month_sales,stock_cover_months,inventory_value_at_cost,gross_profit_at_current_price_per_unit,gross_margin_on_current_price_pct,break_even_discount_ceiling_pct,age_or_cover_risk_flag
+1,Электроника,50,120,2,25.0,150000.0,2000.0,40.0,40.0,True
+2,Одежда,200,90,10,20.0,160000.0,700.0,46.67,46.67,True
+3,Косметика,100,180,0,infinite,40000.0,400.0,50.0,50.0,True
+4,Бытовая техника,15,150,1,15.0,120000.0,4000.0,33.33,33.33,True
+5,Обувь,80,60,25,3.2,120000.0,1500.0,50.0,50.0,False
+6,Игрушки,300,200,3,100.0,75000.0,250.0,50.0,50.0,True
+7,Спорттовары,40,110,4,10.0,48000.0,1300.0,52.0,52.0,True
+8,Книги,150,300,1,150.0,30000.0,400.0,66.67,66.67,True

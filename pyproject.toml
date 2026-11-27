@@ -1,0 +1,6 @@
+[project]
+name = "slow-moving-discount-prompt-study"
+version = "0.2.0"
+description = "Reproducible comparison of prompting strategies for discount recommendations"
+requires-python = ">=3.10"
+dependencies = []
