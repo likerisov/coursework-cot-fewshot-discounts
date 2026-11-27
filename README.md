@@ -26,13 +26,32 @@ Windows: запустите `run_checks.bat`.
 
 Будут созданы `results/portfolio_analysis.csv` и `results/portfolio_analysis.md`. Это детерминированные расчёты по CSV, не ответы языковой модели.
 
-## Запуск языковой модели
-Скопируйте `.env.example` в локальный файл `.env` и заполните `LLM_API_KEY`, `LLM_BASE_URL` и `LLM_MODEL` значениями своего API-провайдера. Не загружайте `.env` в Git.
+## Запуск Qwen через Alibaba Cloud Model Studio
 
-Короткая проверка:
-    python src/run_experiments.py --dry-run --limit 1
+Для проекта настроен Qwen через OpenAI-compatible Chat Completions API. Рекомендуемая конфигурация для пользователя в Европе:
+- Region: **Germany (Frankfurt)**.
+- Service deployment scope: **EU**.
+- Model: **`qwen-plus`**.
+- Base URL: workspace-specific URL вида `https://<WorkspaceId>.eu-central-1.maas.aliyuncs.com/compatible-mode/v1`.
 
-Один полный запуск (32 обращения):
+Подробная инструкция: [`docs/qwen_setup.md`](docs/qwen_setup.md).
+
+Создайте локальный `.env` на основе `.env.example`. В нём заполните:
+- `LLM_API_KEY` — API-ключ Model Studio, созданный в том же Frankfurt workspace.
+- `LLM_BASE_URL` — адрес API Host вашего workspace с окончанием `/compatible-mode/v1`.
+- `LLM_MODEL=qwen-plus`.
+
+**Не используйте пароль от Qwen Chat и не публикуйте API-ключ.** Qwen Chat и Model Studio API Key — разные способы авторизации. Не загружайте локальный `.env` в GitHub.
+
+### Проверка перед полным запуском
+
+Сначала выполните один реальный запрос к Qwen:
+    python src/run_experiments.py --approach zero_shot --limit 1 --repeat 1
+
+Затем проверьте журнал:
+    python src/evaluate_results.py
+
+Если тест прошёл, один полный проход по 8 товарам и 4 подходам:
     python src/run_experiments.py --repeat 1
     python src/evaluate_results.py
 
@@ -40,7 +59,7 @@ Windows: запустите `run_checks.bat`.
     python src/run_experiments.py --repeat 3
     python src/evaluate_results.py
 
-Запросы к платному API могут расходовать средства по тарифу выбранного провайдера. Скрипт не запускает API, пока не заданы ключ и имя модели. Сырые ответы сохраняются в локальный JSONL-журнал; ключ не записывается в журнал.
+Проверьте тариф Model Studio перед запуском: API-вызовы могут быть платными. Первый тестовый запрос нужен, чтобы проверить ключ, endpoint и доступность модели до запуска всей матрицы. Сырые ответы сохраняются в локальный JSONL-журнал; ключ не записывается в журнал.
 
 ## Что уже подтверждено
 В первоначальном пилоте для товара «Электроника» зафиксированы четыре ответа: Zero-shot — диапазон 25–30% (для табличного расчёта выбрано 25%), Few-shot — 15%, CoT — 20%, Few-shot + CoT — 30%. Имя модели/провайдера и параметры исходного запуска не зафиксированы. Пилот относится только к одному товару и не доказывает превосходство одного подхода.

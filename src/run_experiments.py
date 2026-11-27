@@ -112,6 +112,7 @@ def call_api(base_url: str, api_key: str, model: str, prompt: str, timeout: int)
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--limit", type=int, default=0, help="Limit products (0 = all)")
+    parser.add_argument("--approach", choices=tuple(PROMPT_FILES), default=None, help="Run only one prompting approach (useful for a low-cost API smoke test)")
     parser.add_argument("--repeat", type=int, default=1, help="Runs per product/prompt; use 3 for a more stable comparison")
     parser.add_argument("--timeout", type=int, default=90)
     parser.add_argument("--dry-run", action="store_true", help="Render prompts without calling a model")
@@ -126,6 +127,8 @@ def main() -> int:
     if args.limit:
         products = products[:args.limit]
     prompts = {key: load_prompt(path) for key, path in PROMPT_FILES.items()}
+    if args.approach:
+        prompts = {args.approach: prompts[args.approach]}
 
     api_key = os.getenv("LLM_API_KEY", "")
     base_url = os.getenv("LLM_BASE_URL", "https://api.openai.com/v1")
